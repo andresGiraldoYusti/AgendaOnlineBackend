@@ -18,12 +18,10 @@ public class UsuarioModel {
     private String password;
 
 
-    // Constructor sin parámetros
     public UsuarioModel() {
 
     }
 
-    // Constructores, getters y setters
     public UsuarioModel(String username, String email, String password) {
         this.username = username;
         this.email = email;
