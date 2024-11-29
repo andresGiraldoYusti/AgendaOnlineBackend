@@ -19,6 +19,10 @@ public class UsuarioService {
         return usuarioRepository.findAll();
     }
 
+    public Optional<UsuarioModel> iniciarSesion(String username, String password) {
+        return usuarioRepository.findByUsernameAndPassword(username, password);
+    }
+
     public Optional<UsuarioModel> getUserById(long id){
         return usuarioRepository.findById(id);
     }

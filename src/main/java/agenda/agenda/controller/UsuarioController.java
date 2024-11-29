@@ -22,6 +22,15 @@ public class UsuarioController {
         return userService.getAllUsers();
     }
 
+    @PostMapping("/login")
+    public UsuarioModel login(@RequestParam String username, @RequestParam String password) {
+        Optional<UsuarioModel> user = userService.iniciarSesion(username, password);
+        if (user.isPresent()) {
+            return user.get();
+        }
+        throw new RuntimeException("Invalid credentials");
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<UsuarioModel> getUserById(@PathVariable Long id) {
         Optional<UsuarioModel> user = userService.getUserById(id);
